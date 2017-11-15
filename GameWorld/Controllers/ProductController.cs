@@ -15,10 +15,19 @@ namespace GameWorld.Controllers
             _repository = repository;
         }
 
-        public ViewResult List(int page = 1) => View(new ProductsListViewModel
+        public ViewResult List(string category, int page = 1) => View(new ProductsListViewModel
         {
-            Products = _repository.Products.OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize),
-            PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = _repository.Products.Count() }
+            Products = _repository.Products
+            .Where(p => category == null || p.Category == category)
+            .OrderBy(p => p.ProductID).Skip((page - 1) * PageSize)
+            .Take(PageSize),
+            PagingInfo = new PagingInfo
+            {
+                CurrentPage = page,
+                ItemsPerPage = PageSize,
+                TotalItems = category == null ? _repository.Products.Count() : _repository.Products.Count(x => x.Category == category)
+            },
+            CurrentCategory = category
         });
 
     }
