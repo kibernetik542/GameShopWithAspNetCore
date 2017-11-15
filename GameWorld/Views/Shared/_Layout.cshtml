@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+    <title>Game World</title>
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+        <a class="navbar-brand" href="#">GAME WORLD</a>
+    </div>
+    <div class="row panel">
+        <div id="categories" class="col-xs-3">
+            useful
+        </div>
+        <div class="col-xs-8">
+            @RenderBody()
+        </div>
+    </div>
+
+</body>
+</html>
