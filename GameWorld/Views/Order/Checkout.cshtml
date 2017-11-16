@@ -1,0 +1,24 @@
+﻿@model Order
+
+<h2 class="text-primary text-center"><b>Check out now!</b></h2>
+<p class="alert alert-dismissable alert-info"><b>Just enter your details, and we'll ship all goods for you right away!</b></p>
+
+<form asp-action="Checkout" method="post">
+    <h3 class="text-primary"><b>Ship to</b></h3>
+    <div class="form-group"><input asp-for="Name" class="form-control" placeholder="Name:" /></div>
+    <h3 class="text-primary"><b>Address</b></h3>
+    <div class="form-group"><input asp-for="Line1" class="form-control" placeholder="Line 1:" /></div>
+    <div class="form-group"><input asp-for="Line2" class="form-control" placeholder="Line 2:optional" /></div>
+    <div class="form-group"><input asp-for="Line3" class="form-control" placeholder="Line 3:optional" /></div>
+    <div class="form-group"><input asp-for="City" class="form-control" placeholder="City:" /></div>
+    <div class="form-group"><input asp-for="Country" class="form-control" placeholder="Country:" /></div>
+    <h3 class="text-primary"><b>Options</b></h3>
+    <div class="checkbox">
+        <label>
+            <input asp-for="GiftWrap" /> Gift wrap these items
+        </label>
+    </div>
+    <div class="text-center">
+        <input class="btn btn-warning" type="submit" value="Complete Order" />
+    </div>
+</form>
