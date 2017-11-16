@@ -1,0 +1,50 @@
+﻿@model CartIndexViewModel
+
+<h2 class="text-center text-primary">Your Cart</h2>
+
+
+<table class="table table-responsive table-striped table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">Quantity</th>
+            <th class="text-center">Item</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Cart.Lines)
+            {
+            <tr>
+                <td class="text-center">@line.Quantity</td>
+                <td class="text-center">
+                    <img src="@line.Product.ImageUrl" class="img-responsive center-block" height="65px;" width="75px;" />
+                </td>
+                <td class="text-right">@line.Product.Price.ToString("C")</td>
+                <td class="text-right">
+                    @((line.Quantity * line.Product.Price).ToString("C"))
+                </td>
+                <td>
+                    <form asp-action="RemoveFromCart" method="post">
+                        <input type="hidden" name="ProductID" value="@line.Product.ProductID" />
+                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                        <button type="submit" class="btn btn-danger btn-sm center-block">
+                            <i class="glyphicon glyphicon-remove"></i>&nbsp;Remove
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right text-primary"><b>Total:</b></td>
+            <td class="text-right"><b>@Model.Cart.ComputeTotalValue().ToString("C")</b></td>
+        </tr>
+    </tfoot>
+</table>
+
+
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
+</div>

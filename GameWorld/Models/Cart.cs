@@ -1,0 +1,39 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace GameWorld.Models
+{
+    public class Cart
+    {
+        private List<CartLine> lineCollection = new List<CartLine>();
+
+        public virtual void AddItem(Product product, int quantity)
+        {
+            CartLine line = lineCollection.FirstOrDefault(p => p.Product.ProductID == product.ProductID);
+
+            if (line == null)
+            {
+                lineCollection.Add(new CartLine
+                {
+                    Product = product,
+                    Quantity = quantity
+                });
+            }
+            else
+            {
+                line.Quantity += quantity;
+            }
+        }
+
+        public virtual void RemoveLine(Product product) =>
+            lineCollection.RemoveAll(l => l.Product.ProductID == product.ProductID);
+
+        public virtual decimal ComputeTotalValue() =>
+            lineCollection.Sum(e => e.Product.Price * e.Quantity);
+
+        public virtual void Clear() => lineCollection.Clear();
+
+        public virtual IEnumerable<CartLine> Lines => lineCollection;
+    }
+}
+

@@ -3,12 +3,16 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.css" />
+    <link rel="stylesheet" asp-href-include="/lib/font-awesome/css/*.css" />
     <title>Game World</title>
 </head>
 <body>
     <div class="navbar navbar-default" role="navigation">
         <a class="navbar-brand" href="#">GAME WORLD</a>
+        <div class="pull-right">
+            @await Component.InvokeAsync("CartSummary")
+        </div>
     </div>
     <div class="row panel">
         <div id="categories" class="col-xs-3">
