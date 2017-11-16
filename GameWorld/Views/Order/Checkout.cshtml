@@ -2,7 +2,7 @@
 
 <h2 class="text-primary text-center"><b>Check out now!</b></h2>
 <p class="alert alert-dismissable alert-info"><b>Just enter your details, and we'll ship all goods for you right away!</b></p>
-
+<div asp-validation-summary="All" class="text-danger"></div>
 <form asp-action="Checkout" method="post">
     <h3 class="text-primary"><b>Ship to</b></h3>
     <div class="form-group"><input asp-for="Name" class="form-control" placeholder="Name:" /></div>
@@ -22,3 +22,4 @@
         <input class="btn btn-warning" type="submit" value="Complete Order" />
     </div>
 </form>
+
