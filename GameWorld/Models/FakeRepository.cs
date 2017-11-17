@@ -2,7 +2,7 @@
 
 namespace GameWorld.Models
 {
-    public class FakeRepository : IProductRepository
+    public class FakeRepository  /*IProductRepository*/
     {
         public IEnumerable<Product> Products => new List<Product>
         {

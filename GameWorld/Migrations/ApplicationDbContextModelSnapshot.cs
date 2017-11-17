@@ -59,6 +59,8 @@ namespace GameWorld.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
+                    b.Property<bool>("Shipped");
+
                     b.HasKey("OrderID");
 
                     b.ToTable("Orders");
@@ -78,6 +80,12 @@ namespace GameWorld.Migrations
                     b.Property<string>("Name");
 
                     b.Property<decimal>("Price");
+
+                    b.Property<string>("Screenshot1");
+
+                    b.Property<string>("Screenshot2");
+
+                    b.Property<string>("Screenshot3");
 
                     b.HasKey("ProductID");
 
