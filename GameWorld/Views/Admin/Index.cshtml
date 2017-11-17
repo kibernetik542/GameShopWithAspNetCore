@@ -9,6 +9,7 @@
     <tr>
         <th class="text-right">ID</th>
         <th>Name</th>
+
         <th class="text-right">Price</th>
         <th class="text-center">Actions</th>
     </tr>
@@ -17,6 +18,7 @@
         <tr>
             <td class="text-right">@item.ProductID</td>
             <td>@item.Name</td>
+
             <td class="text-right">@item.Price.ToString("C")</td>
             <td class="text-center">
                 <form asp-action="Delete" method="post">

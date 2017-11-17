@@ -13,9 +13,13 @@
         <img src="@Model.ImageUrl" class="img-thumbnail pull-left" />
     </div>
     <br />
+
     <div class="col-xs-9">
         <h3>
-            <i class="alert-info text-center"><b>@Model.Description</b></i>
+            @*<i class="alert-info text-center"><b>@Model.Description</b></i>*@
+            <img src="@Model.Screenshot1" height="150px;" width="200px;" />
+            <img src="@Model.Screenshot2" height="150px;" width="200px;" />
+            <img src="@Model.Screenshot3" height="150px;" width="200px;" />
             <br />
             <br />
             <span class="pull-right label label-info">@Model.Price.ToString("C")</span>
