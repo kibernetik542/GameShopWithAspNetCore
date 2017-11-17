@@ -20,12 +20,17 @@
 <body class="panel panel-primary">
     <div class="panel-heading">
         <h4>@ViewBag.Title</h4>
+
     </div>
     <div>
         @if (TempData["message"] != null)
         {
             <div class="alert alert-success">@TempData["message"]</div>
         }
+        <br />
+        <a class="btn btn-sm btn-default pull-right" asp-action="Logout" asp-controller="Account">
+            <i class="fa fa-sign-out text-danger"></i>&nbsp;Log out
+        </a>
         @RenderBody()
     </div>
 </body>
